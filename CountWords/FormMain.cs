@@ -56,14 +56,13 @@ namespace CountWords
 
     private string RemoveBadCharacters(string word)
     {
-      string result = string.Empty;
-      result = word.Trim('.');
+      string result = word.Trim('.');
       result = result.Trim(',');
-      result = result.Trim('"');
+      result = result.TrimEnd('"');
       result = result.TrimStart('"');
-      result = result.Trim('!');
-      result = result.Trim('?');
-      result = result.Trim('=');
+      result = result.TrimEnd('!');
+      result = result.TrimEnd('?');
+      result = result.TrimEnd('=');
       result = result.TrimEnd(';');
       if (result == " " || result.Length == 1)
       {
