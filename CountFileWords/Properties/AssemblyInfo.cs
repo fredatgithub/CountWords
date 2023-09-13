@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // l'ensemble d'attributs suivant. Changez les valeurs de ces attributs pour modifier les informations
 // associées à un assembly.
 [assembly: AssemblyTitle("CountFileWords")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("count all words in a file")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("e-SNCF")]
+[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("CountFileWords")]
-[assembly: AssemblyCopyright("Copyright © e-SNCF 2023")]
+[assembly: AssemblyCopyright("Copyright © Freddy Juhel MIT 2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

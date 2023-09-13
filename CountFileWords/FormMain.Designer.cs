@@ -61,28 +61,38 @@
       this.rechercherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
       this.àproposdeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.textBoxFileContent = new System.Windows.Forms.TextBox();
+      this.buttonCountWords = new System.Windows.Forms.Button();
+      this.listBoxWords = new System.Windows.Forms.ListBox();
+      this.labelCountListBoxWords = new System.Windows.Forms.Label();
+      this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+      this.buttonLoadFileContent = new System.Windows.Forms.Button();
+      this.buttonSortByWord = new System.Windows.Forms.Button();
+      this.buttonSortByNumber = new System.Windows.Forms.Button();
       this.menuStrip1.SuspendLayout();
       this.SuspendLayout();
       // 
       // buttonChooseFile
       // 
-      this.buttonChooseFile.Location = new System.Drawing.Point(70, 155);
+      this.buttonChooseFile.Location = new System.Drawing.Point(70, 100);
       this.buttonChooseFile.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
       this.buttonChooseFile.Name = "buttonChooseFile";
-      this.buttonChooseFile.Size = new System.Drawing.Size(168, 40);
+      this.buttonChooseFile.Size = new System.Drawing.Size(184, 42);
       this.buttonChooseFile.TabIndex = 0;
       this.buttonChooseFile.Text = "Choose File:";
       this.buttonChooseFile.UseVisualStyleBackColor = true;
+      this.buttonChooseFile.Click += new System.EventHandler(this.ButtonChooseFile_Click);
       // 
       // textBoxfilePath
       // 
       this.textBoxfilePath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-      this.textBoxfilePath.Location = new System.Drawing.Point(248, 155);
+      this.textBoxfilePath.Location = new System.Drawing.Point(259, 104);
       this.textBoxfilePath.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
       this.textBoxfilePath.Name = "textBoxfilePath";
-      this.textBoxfilePath.Size = new System.Drawing.Size(1468, 35);
+      this.textBoxfilePath.Size = new System.Drawing.Size(1483, 35);
       this.textBoxfilePath.TabIndex = 1;
+      this.textBoxfilePath.TextChanged += new System.EventHandler(this.TextBoxfilePath_TextChanged);
       // 
       // menuStrip1
       // 
@@ -95,7 +105,7 @@
             this.aideToolStripMenuItem});
       this.menuStrip1.Location = new System.Drawing.Point(0, 0);
       this.menuStrip1.Name = "menuStrip1";
-      this.menuStrip1.Size = new System.Drawing.Size(1497, 33);
+      this.menuStrip1.Size = new System.Drawing.Size(1766, 33);
       this.menuStrip1.TabIndex = 2;
       this.menuStrip1.Text = "menuStrip1";
       // 
@@ -322,11 +332,98 @@
       this.àproposdeToolStripMenuItem.Size = new System.Drawing.Size(226, 34);
       this.àproposdeToolStripMenuItem.Text = "À &propos de...";
       // 
+      // textBoxFileContent
+      // 
+      this.textBoxFileContent.Location = new System.Drawing.Point(70, 245);
+      this.textBoxFileContent.Multiline = true;
+      this.textBoxFileContent.Name = "textBoxFileContent";
+      this.textBoxFileContent.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+      this.textBoxFileContent.Size = new System.Drawing.Size(710, 493);
+      this.textBoxFileContent.TabIndex = 3;
+      this.textBoxFileContent.TextChanged += new System.EventHandler(this.TextBoxFileContent_TextChanged);
+      // 
+      // buttonCountWords
+      // 
+      this.buttonCountWords.Enabled = false;
+      this.buttonCountWords.Location = new System.Drawing.Point(799, 245);
+      this.buttonCountWords.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+      this.buttonCountWords.Name = "buttonCountWords";
+      this.buttonCountWords.Size = new System.Drawing.Size(194, 40);
+      this.buttonCountWords.TabIndex = 4;
+      this.buttonCountWords.Text = "Count words";
+      this.buttonCountWords.UseVisualStyleBackColor = true;
+      this.buttonCountWords.Click += new System.EventHandler(this.ButtonCountWords_Click);
+      // 
+      // listBoxWords
+      // 
+      this.listBoxWords.FormattingEnabled = true;
+      this.listBoxWords.ItemHeight = 29;
+      this.listBoxWords.Location = new System.Drawing.Point(1001, 245);
+      this.listBoxWords.Name = "listBoxWords";
+      this.listBoxWords.Size = new System.Drawing.Size(520, 497);
+      this.listBoxWords.Sorted = true;
+      this.listBoxWords.TabIndex = 5;
+      // 
+      // labelCountListBoxWords
+      // 
+      this.labelCountListBoxWords.AutoSize = true;
+      this.labelCountListBoxWords.Location = new System.Drawing.Point(996, 745);
+      this.labelCountListBoxWords.Name = "labelCountListBoxWords";
+      this.labelCountListBoxWords.Size = new System.Drawing.Size(101, 29);
+      this.labelCountListBoxWords.TabIndex = 6;
+      this.labelCountListBoxWords.Text = "Count: 0";
+      // 
+      // openFileDialog1
+      // 
+      this.openFileDialog1.FileName = "openFileDialog1";
+      // 
+      // buttonLoadFileContent
+      // 
+      this.buttonLoadFileContent.Location = new System.Drawing.Point(70, 168);
+      this.buttonLoadFileContent.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+      this.buttonLoadFileContent.Name = "buttonLoadFileContent";
+      this.buttonLoadFileContent.Size = new System.Drawing.Size(184, 42);
+      this.buttonLoadFileContent.TabIndex = 7;
+      this.buttonLoadFileContent.Text = "Load File";
+      this.buttonLoadFileContent.UseVisualStyleBackColor = true;
+      this.buttonLoadFileContent.Click += new System.EventHandler(this.ButtonLoadFileContent_Click);
+      // 
+      // buttonSortByWord
+      // 
+      this.buttonSortByWord.Enabled = false;
+      this.buttonSortByWord.Location = new System.Drawing.Point(799, 293);
+      this.buttonSortByWord.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+      this.buttonSortByWord.Name = "buttonSortByWord";
+      this.buttonSortByWord.Size = new System.Drawing.Size(194, 40);
+      this.buttonSortByWord.TabIndex = 8;
+      this.buttonSortByWord.Text = "Sort by word";
+      this.buttonSortByWord.UseVisualStyleBackColor = true;
+      this.buttonSortByWord.Click += new System.EventHandler(this.ButtonSortByWord_Click);
+      // 
+      // buttonSortByNumber
+      // 
+      this.buttonSortByNumber.Enabled = false;
+      this.buttonSortByNumber.Location = new System.Drawing.Point(799, 341);
+      this.buttonSortByNumber.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+      this.buttonSortByNumber.Name = "buttonSortByNumber";
+      this.buttonSortByNumber.Size = new System.Drawing.Size(194, 40);
+      this.buttonSortByNumber.TabIndex = 9;
+      this.buttonSortByNumber.Text = "Sort by number";
+      this.buttonSortByNumber.UseVisualStyleBackColor = true;
+      this.buttonSortByNumber.Click += new System.EventHandler(this.ButtonSortByNumber_Click);
+      // 
       // FormMain
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(1497, 794);
+      this.ClientSize = new System.Drawing.Size(1766, 794);
+      this.Controls.Add(this.buttonSortByNumber);
+      this.Controls.Add(this.buttonSortByWord);
+      this.Controls.Add(this.buttonLoadFileContent);
+      this.Controls.Add(this.labelCountListBoxWords);
+      this.Controls.Add(this.listBoxWords);
+      this.Controls.Add(this.buttonCountWords);
+      this.Controls.Add(this.textBoxFileContent);
       this.Controls.Add(this.textBoxfilePath);
       this.Controls.Add(this.buttonChooseFile);
       this.Controls.Add(this.menuStrip1);
@@ -335,6 +432,7 @@
       this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
       this.Name = "FormMain";
       this.Text = "Count all words from a file";
+      this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormMain_FormClosed);
       this.Load += new System.EventHandler(this.FormMain_Load);
       this.menuStrip1.ResumeLayout(false);
       this.menuStrip1.PerformLayout();
@@ -377,6 +475,14 @@
     private System.Windows.Forms.ToolStripMenuItem rechercherToolStripMenuItem;
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
     private System.Windows.Forms.ToolStripMenuItem àproposdeToolStripMenuItem;
+    private System.Windows.Forms.TextBox textBoxFileContent;
+    private System.Windows.Forms.Button buttonCountWords;
+    private System.Windows.Forms.ListBox listBoxWords;
+    private System.Windows.Forms.Label labelCountListBoxWords;
+    private System.Windows.Forms.OpenFileDialog openFileDialog1;
+    private System.Windows.Forms.Button buttonLoadFileContent;
+    private System.Windows.Forms.Button buttonSortByWord;
+    private System.Windows.Forms.Button buttonSortByNumber;
   }
 }
 
