@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Windows.Forms;
 using CountFileWords.Properties;
 
@@ -24,6 +26,7 @@ namespace CountFileWords
     private void FormMain_Load(object sender, EventArgs e)
     {
       GetWindowValue();
+      Text += $" - {DisplayTitle()}";
     }
 
     private void SaveWindowValue()
@@ -126,6 +129,8 @@ namespace CountFileWords
     {
       buttonSortByNumber.Enabled = true;
       buttonSortByWord.Enabled = true;
+      buttonOrderByNumberDesc.Enabled = true;
+      buttonOrderByWordDesc.Enabled = true;
     }
 
     private void CountListboxItems()
@@ -179,6 +184,25 @@ namespace CountFileWords
     private void ButtonSortByNumber_Click(object sender, EventArgs e)
     {
       var sortedDico = _dico.OrderBy(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
+      LoadDicoIntoListBox(sortedDico);
+    }
+
+    private static string DisplayTitle()
+    {
+      Assembly assembly = Assembly.GetExecutingAssembly();
+      FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
+      return string.Format("V{0}.{1}.{2}.{3}", fvi.FileMajorPart, fvi.FileMinorPart, fvi.FileBuildPart, fvi.FilePrivatePart);
+    }
+
+    private void ButtonOrderByNumberDesc_Click(object sender, EventArgs e)
+    {
+      var sortedDico = _dico.OrderByDescending(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
+      LoadDicoIntoListBox(sortedDico);
+    }
+
+    private void ButtonOrderByWordDesc_Click(object sender, EventArgs e)
+    {
+      var sortedDico = _dico.OrderByDescending(x => x.Key).ToDictionary(x => x.Key, x => x.Value);
       LoadDicoIntoListBox(sortedDico);
     }
   }

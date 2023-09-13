@@ -69,6 +69,9 @@
       this.buttonLoadFileContent = new System.Windows.Forms.Button();
       this.buttonSortByWord = new System.Windows.Forms.Button();
       this.buttonSortByNumber = new System.Windows.Forms.Button();
+      this.buttonOrderByNumberDesc = new System.Windows.Forms.Button();
+      this.buttonOrderByWordDesc = new System.Windows.Forms.Button();
+      this.labelListBoxWords = new System.Windows.Forms.Label();
       this.menuStrip1.SuspendLayout();
       this.SuspendLayout();
       // 
@@ -105,7 +108,7 @@
             this.aideToolStripMenuItem});
       this.menuStrip1.Location = new System.Drawing.Point(0, 0);
       this.menuStrip1.Name = "menuStrip1";
-      this.menuStrip1.Size = new System.Drawing.Size(1766, 33);
+      this.menuStrip1.Size = new System.Drawing.Size(2119, 43);
       this.menuStrip1.TabIndex = 2;
       this.menuStrip1.Text = "menuStrip1";
       // 
@@ -348,7 +351,7 @@
       this.buttonCountWords.Location = new System.Drawing.Point(799, 245);
       this.buttonCountWords.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
       this.buttonCountWords.Name = "buttonCountWords";
-      this.buttonCountWords.Size = new System.Drawing.Size(194, 40);
+      this.buttonCountWords.Size = new System.Drawing.Size(280, 40);
       this.buttonCountWords.TabIndex = 4;
       this.buttonCountWords.Text = "Count words";
       this.buttonCountWords.UseVisualStyleBackColor = true;
@@ -356,18 +359,19 @@
       // 
       // listBoxWords
       // 
+      this.listBoxWords.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
       this.listBoxWords.FormattingEnabled = true;
       this.listBoxWords.ItemHeight = 29;
-      this.listBoxWords.Location = new System.Drawing.Point(1001, 245);
+      this.listBoxWords.Location = new System.Drawing.Point(1087, 245);
       this.listBoxWords.Name = "listBoxWords";
-      this.listBoxWords.Size = new System.Drawing.Size(520, 497);
-      this.listBoxWords.Sorted = true;
+      this.listBoxWords.Size = new System.Drawing.Size(655, 497);
       this.listBoxWords.TabIndex = 5;
       // 
       // labelCountListBoxWords
       // 
       this.labelCountListBoxWords.AutoSize = true;
-      this.labelCountListBoxWords.Location = new System.Drawing.Point(996, 745);
+      this.labelCountListBoxWords.Location = new System.Drawing.Point(1082, 745);
       this.labelCountListBoxWords.Name = "labelCountListBoxWords";
       this.labelCountListBoxWords.Size = new System.Drawing.Size(101, 29);
       this.labelCountListBoxWords.TabIndex = 6;
@@ -391,32 +395,68 @@
       // buttonSortByWord
       // 
       this.buttonSortByWord.Enabled = false;
-      this.buttonSortByWord.Location = new System.Drawing.Point(799, 293);
+      this.buttonSortByWord.Location = new System.Drawing.Point(799, 350);
       this.buttonSortByWord.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
       this.buttonSortByWord.Name = "buttonSortByWord";
-      this.buttonSortByWord.Size = new System.Drawing.Size(194, 40);
+      this.buttonSortByWord.Size = new System.Drawing.Size(280, 40);
       this.buttonSortByWord.TabIndex = 8;
-      this.buttonSortByWord.Text = "Sort by word";
+      this.buttonSortByWord.Text = "Sort by word ASC";
       this.buttonSortByWord.UseVisualStyleBackColor = true;
       this.buttonSortByWord.Click += new System.EventHandler(this.ButtonSortByWord_Click);
       // 
       // buttonSortByNumber
       // 
       this.buttonSortByNumber.Enabled = false;
-      this.buttonSortByNumber.Location = new System.Drawing.Point(799, 341);
+      this.buttonSortByNumber.Location = new System.Drawing.Point(799, 492);
       this.buttonSortByNumber.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
       this.buttonSortByNumber.Name = "buttonSortByNumber";
-      this.buttonSortByNumber.Size = new System.Drawing.Size(194, 40);
+      this.buttonSortByNumber.Size = new System.Drawing.Size(280, 40);
       this.buttonSortByNumber.TabIndex = 9;
-      this.buttonSortByNumber.Text = "Sort by number";
+      this.buttonSortByNumber.Text = "Order by number ASC";
       this.buttonSortByNumber.UseVisualStyleBackColor = true;
       this.buttonSortByNumber.Click += new System.EventHandler(this.ButtonSortByNumber_Click);
+      // 
+      // buttonOrderByNumberDesc
+      // 
+      this.buttonOrderByNumberDesc.Enabled = false;
+      this.buttonOrderByNumberDesc.Location = new System.Drawing.Point(799, 540);
+      this.buttonOrderByNumberDesc.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+      this.buttonOrderByNumberDesc.Name = "buttonOrderByNumberDesc";
+      this.buttonOrderByNumberDesc.Size = new System.Drawing.Size(280, 40);
+      this.buttonOrderByNumberDesc.TabIndex = 10;
+      this.buttonOrderByNumberDesc.Text = "Order by number DESC";
+      this.buttonOrderByNumberDesc.UseVisualStyleBackColor = true;
+      this.buttonOrderByNumberDesc.Click += new System.EventHandler(this.ButtonOrderByNumberDesc_Click);
+      // 
+      // buttonOrderByWordDesc
+      // 
+      this.buttonOrderByWordDesc.Enabled = false;
+      this.buttonOrderByWordDesc.Location = new System.Drawing.Point(799, 398);
+      this.buttonOrderByWordDesc.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+      this.buttonOrderByWordDesc.Name = "buttonOrderByWordDesc";
+      this.buttonOrderByWordDesc.Size = new System.Drawing.Size(280, 40);
+      this.buttonOrderByWordDesc.TabIndex = 11;
+      this.buttonOrderByWordDesc.Text = "Sort by word DESC";
+      this.buttonOrderByWordDesc.UseVisualStyleBackColor = true;
+      this.buttonOrderByWordDesc.Click += new System.EventHandler(this.ButtonOrderByWordDesc_Click);
+      // 
+      // labelListBoxWords
+      // 
+      this.labelListBoxWords.AutoSize = true;
+      this.labelListBoxWords.Location = new System.Drawing.Point(1082, 181);
+      this.labelListBoxWords.Name = "labelListBoxWords";
+      this.labelListBoxWords.Size = new System.Drawing.Size(514, 35);
+      this.labelListBoxWords.TabIndex = 12;
+      this.labelListBoxWords.Text = "Word - Number of instance of this word";
       // 
       // FormMain
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(1766, 794);
+      this.Controls.Add(this.labelListBoxWords);
+      this.Controls.Add(this.buttonOrderByWordDesc);
+      this.Controls.Add(this.buttonOrderByNumberDesc);
       this.Controls.Add(this.buttonSortByNumber);
       this.Controls.Add(this.buttonSortByWord);
       this.Controls.Add(this.buttonLoadFileContent);
@@ -483,6 +523,9 @@
     private System.Windows.Forms.Button buttonLoadFileContent;
     private System.Windows.Forms.Button buttonSortByWord;
     private System.Windows.Forms.Button buttonSortByNumber;
+    private System.Windows.Forms.Button buttonOrderByNumberDesc;
+    private System.Windows.Forms.Button buttonOrderByWordDesc;
+    private System.Windows.Forms.Label labelListBoxWords;
   }
 }
 
